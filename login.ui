@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>481</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #42505E;</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>80</y>
+     <width>141</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:#9D9BC3;
+font:42pt &quot;Microsoft JhengHei UI Light&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Login</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Pass">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>370</y>
+     <width>361</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font:16pt &quot;Microsoft JhengHei UI Light&quot;;
+color: rgb(255, 255, 255);
+
+
+background:transparent;
+border:none;
+color:rgb(255, 255, 255);;
+border-bottom:1px solid rgb(96, 118, 129);</string>
+   </property>
+   <property name="placeholderText">
+    <string>Password</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Email">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>250</y>
+     <width>361</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font:16pt &quot;Microsoft JhengHei UI Light&quot;;
+color: rgb(255, 255, 255);
+
+
+background:transparent;
+border:none;
+color:rgb(255, 255, 255);;
+border-bottom:1px solid rgb(96, 118, 129);</string>
+   </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="frame">
+    <bool>true</bool>
+   </property>
+   <property name="readOnly">
+    <bool>false</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Email Adress</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="LoginButton">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>550</y>
+     <width>241</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{background-color: rgb(0, 128, 128);
+font: 25 22pt &quot;Microsoft YaHei UI Light&quot;;
+color: rgb(222, 184, 135);
+border-style: dotted;
+gridline-color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);}
+QPushButton:hover{background-color:rgb(241, 241, 241);
+font: 25 22pt &quot;Microsoft YaHei UI Light&quot;;
+color: rgb(222, 184, 135);
+border-style: dotted;
+gridline-color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);}</string>
+   </property>
+   <property name="text">
+    <string>Log in</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="signup">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>550</y>
+     <width>241</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{background-color: rgb(0, 128, 128);
+font: 25 22pt &quot;Microsoft YaHei UI Light&quot;;
+color: rgb(222, 184, 135);
+border-style: dotted;
+gridline-color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);}
+QPushButton:hover{background-color:rgb(241, 241, 241);
+font: 25 22pt &quot;Microsoft YaHei UI Light&quot;;
+color: rgb(222, 184, 135);
+border-style: dotted;
+gridline-color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);}</string>
+   </property>
+   <property name="text">
+    <string>Sign up</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="invalidLabel_3">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>430</y>
+     <width>141</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(238, 74, 38);
+border-style: dotted;}
+QPushButton:Hover{
+font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+color:  rgb(241, 241, 241);
+border-style: dotted;}</string>
+   </property>
+   <property name="text">
+    <string>INVALID PASSWORD!</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="invalidLabel_4">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>310</y>
+     <width>141</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(238, 74, 38);
+border-style: dotted;}
+QPushButton:Hover{
+font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+color:  rgb(241, 241, 241);
+border-style: dotted;}</string>
+   </property>
+   <property name="text">
+    <string>INVALID EMAIL!</string>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>Email</tabstop>
+  <tabstop>Pass</tabstop>
+  <tabstop>LoginButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,10 @@
+[
+    {"src": "twister", "name": "Твистер Де Люкс", "cost": "169"},
+    {"src": "5-for-300", "name": "Ланч '5 за 300'", "cost": "300"},
+    {"src": "cheese-burger", "name": "Чизбургер", "cost": "69"},
+    {"src": "chiefburger", "name": "Шефбургер", "cost": "99"},
+    {"src": "longer", "name": "Лонгер", "cost": "59"},
+    {"src": "strips", "name": "Стрипсы 3шт", "cost": "114"},
+    {"src": "wings", "name": "Крылья 3шт", "cost": "89"},
+    {"src": "milkshake", "name": "Милкшейк", "cost": "109"}
+]

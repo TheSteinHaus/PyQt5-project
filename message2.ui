@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>627</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(61, 75, 82);</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>100</y>
+     <width>231</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(255, 201, 126);
+font:42pt &quot;Microsoft JhengHei UI Light&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Message</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEdit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>260</y>
+     <width>391</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 128, 128);
+font: 25 22pt &quot;Microsoft YaHei UI Light&quot;;
+color: rgb(222, 184, 135);
+border-style: dotted;
+gridline-color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Microsoft YaHei UI Light'; font-size:22pt; font-weight:24; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The username and password you entered did not match our records. Please double-check and try again.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backtocreat">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{background-color: rgb(0, 128, 128);
+font: 25 22pt &quot;Microsoft YaHei UI Light&quot;;
+color: rgb(222, 184, 135);
+border-style: dotted;
+gridline-color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);}
+QPushButton:hover{background-color:rgb(241, 241, 241);
+font: 25 22pt &quot;Microsoft YaHei UI Light&quot;;
+color: rgb(222, 184, 135);
+border-style: dotted;
+gridline-color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);}</string>
+   </property>
+   <property name="text">
+    <string>❮</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
