@@ -7,12 +7,13 @@ from PyQt5.QtGui import QPixmap, QIcon, QFont
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QDialog, QApplication, QRadioButton, QLabel
 from PyQt5.uic import loadUi
-from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtCore import pyqtSlot, QTimer, QTime, QDate, QDateTime, QUrl, Qt
+from PyQt5.QtWebEngineWidgets import QWebEngineView as QWebView, QWebEnginePage as QWebPage, QWebEngineSettings as QWebSettings
 import sqlite3
 import re
 import time
 import json
-import pyowm
+from pyowm import OWM
 
 with open('apps.json', encoding='utf-8') as file:
     apps = json.load(file)
@@ -21,20 +22,20 @@ with open('products.json', encoding='utf-8') as file:
     products = json.load(file)
 
 
-class login(QDialog):
+class Login(QDialog):
 
     def __init__(self):
-        super(login, self).__init__()
+        super(Login, self).__init__()
         loadUi("login.ui", self)
-        self.welcome = WELCOME()
+        self.welcome = Welcome()
 
-        self.LoginButton.clicked.connect(self.loginfunction)
+        self.LoginButton.clicked.connect(self.loginFunction)
         self.Pass.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.signup.clicked.connect(self.gotocreat)
+        self.signup.clicked.connect(self.goToCreate)
         self.invalidLabel_3.setVisible(False)
         self.invalidLabel_4.setVisible(False)
 
-    def loginfunction(self):
+    def loginFunction(self):
         email = self.Email.text()
         password = self.Pass.text()
         conn = sqlite3.connect('users.db')
@@ -58,30 +59,20 @@ class login(QDialog):
         else:
             print('No user Found')
 
-
-    #>>>>>>>>>>>>>>>>>>>
-    """def invalidMesege(self):
-        pass"""
-
-    def sleepButton(self):
-        self.LoginButton.setEnabled(False)
-        time.sleep(5)
-        self.LoginButton.setEnabled(True)
-        print('time finish')
-
     def goWelcome(self):
         self.welcome.show()
 
-    #>>>>>>>>>>>>>>>>>>>
-    def gotocreat(self):
-        creatacc = creatAccount()
+    def goToCreate(self):
+        creatacc = createAccount()
         widget.addWidget(creatacc)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-class creatAccount(QDialog):
+
+class createAccount(QDialog):
     gender = 'Male'
+
     def __init__(self):
-        super(creatAccount, self).__init__()
+        super(createAccount, self).__init__()
         loadUi("creatAccount.ui", self)
         widget.setFixedWidth(480)
         widget.setFixedHeight(620)
@@ -90,7 +81,7 @@ class creatAccount(QDialog):
         self.creatAcc.clicked.connect(self.creatAccFun)
         self.Pass_2.setEchoMode(QtWidgets.QLineEdit.Password)
         self.Pass_3.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.backtologin.clicked.connect(self.gotoback)
+        self.backtologin.clicked.connect(self.goToBack)
         self.invalidLabel.clicked.connect(self.popMessage)
         self.invalidLabel_2.clicked.connect(self.popMessage)
         self.creatAcc.clicked.connect(self.creatAccFun)
@@ -108,7 +99,7 @@ class creatAccount(QDialog):
         if len(surname) < 3:
             self.invalidfamilyname.setVisible(True)
         email = (self.Email.text()).lower()
-        if self.passCheck()==True:
+        if self.passCheck():
             Pass = self.Pass_2.text()
             conn = sqlite3.connect("users.db")
             c = conn.cursor()
@@ -117,7 +108,7 @@ class creatAccount(QDialog):
             conn.commit()
             c.close()
             conn.close()
-            self.gotoback()
+            self.goToBack()
         else:
             self.invalidLabel.setVisible(True)
             self.invalidLabel_2.setVisible(True)
@@ -130,72 +121,105 @@ class creatAccount(QDialog):
             print("\npassword must be > 6 and contain A-Z,a-z,0-9 ... ", self.Pass_2.text(),self.Pass_3.text(),len(self.Pass_2.text()))
             return False
 
-    def gotoback(self):
-        creatacc = login()
+    def goToBack(self):
+        creatacc = Login()
         widget.addWidget(creatacc)
         widget.setCurrentIndex(widget.currentIndex() - 1)
 
     def popMessage(self):
-        msg = message()
+        msg = Message()
         widget.addWidget(msg)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
-class message(QDialog):
+class Message(QDialog):
+
     def __init__(self):
-        super(message,self).__init__()
+        super(Message, self).__init__()
         loadUi("message.ui", self)
         widget.setFixedWidth(480)
         widget.setFixedHeight(620)
         self.backtocreat.clicked.connect(self.gotoback2)
+
     def gotoback2(self):
-        g = creatAccount()
+        g = createAccount()
         widget.addWidget(g)
         widget.setCurrentIndex(widget.currentIndex() - 1)
         print(widget.currentIndex())
-class message2(QDialog):
+
+
+class Welcome(QDialog):
     def __init__(self):
-        super(message2,self).__init__()
-        loadUi("message2.ui",self)
-        self.backtocreat.clicked.connect(self.gotoback2)
-
-    def gotoback2(self):
-        """ g = login()
-        layout.removeWidget(widget.currentIndex())
-        widget.currentIndex().deleteLater()
-        widget.currentIndex = None
-        loadUi("login.ui", self)"""
-        g = login()
-        widget.addWidget(g)
-
-        widget.setCurrentIndex(widget.currentIndex() - 1)
-        widget.setCurrentIndex = 0
-        print(widget.currentIndex())
-
-
-class WELCOME(QDialog):
-    def __init__(self):
-        super(WELCOME, self).__init__()
+        super(Welcome, self).__init__()
         self.cal = MyCalc()
         self.ch = Shop()
         loadUi("welcome.ui", self)
         self.listWidget.setViewMode(QtWidgets.QListWidget.IconMode)
+        self.setFixedWidth(1365)
+        self.setFixedHeight(921)
+        self.pushButton.clicked.connect(self.getWeather)
 
         for item in apps:
 
             pixmap = QPixmap(item['src'])
             item = QListWidgetItem(QIcon(pixmap), item['name'])
-            # item = QtWidgets.QListWidgetItem()
 
             self.listWidget.addItem(item)
 
         self.listWidget.itemActivated.connect(self.launch)
+
+        self.webbrowser = QWebView(self)
+        self.gridLayout_2.addWidget(self.webbrowser)
+        self.webbrowser.load(QUrl('https://meduza.io/'))
+
+        timer = QTimer(self)
+        timer.timeout.connect(self.showTime)
+        timer.start(1000)
 
     def launch(self, item):
         if item.text() == 'Калькулятор':
             self.cal.show()
         elif item.text() == 'Чек из KFC':
             self.ch.show()
+
+    def showTime(self):
+
+        current_time = QDateTime.currentDateTime()
+        label_time = current_time.toString(Qt.DefaultLocaleLongDate)
+        self.label_2.setText(label_time)
+
+    def getWeather(self):
+        owm = OWM('6d00d1d4e704068d70191bad2673e0cc')
+        city = self.lineEdit.text()
+
+        obs = owm.weather_manager().weather_at_place(city)
+        w = obs.weather
+
+        t = w.temperature("celsius")
+        t1 = t['temp']
+        t2 = t['feels_like']
+        t3 = t['temp_max']
+        t4 = t['temp_min']
+        wi = w.wind()['speed']
+        humi = w.humidity
+        cl = w.clouds
+        st = w.status
+        dt = w.detailed_status
+        ti = w.reference_time('iso')
+        pr = w.pressure['press']
+        vd = w.visibility_distance
+
+        answer = "В городе " + str(city) + " температура " + str(t1) + " °C" + "\n" + \
+              "Максимальная температура " + str(t3) + " °C" +"\n" + \
+              "Минимальная температура " + str(t4) + " °C" + "\n" + \
+              "Ощущается как " + str(t2) + " °C" + "\n" + \
+              "Скорость ветра " + str(wi) + " м/с" + "\n" + \
+              "Давление " + str(pr) + " мм.рт.ст" + "\n" + \
+              "Влажность " + str(humi) + " %" + "\n" + \
+              "Видимость " + str(vd) + " метров" + "\n" + \
+              "Описание " + str(st)
+
+        self.textEdit.setText(answer)
 
 
 class MyCalc(QtWidgets.QMainWindow):
@@ -430,7 +454,7 @@ class SetValue(QDialog, UiSetValue):
 if __name__ == '__main__':
 
     app = QApplication(sys.argv)
-    mainWin = login()
+    mainWin = Login()
     widget = QtWidgets.QStackedWidget()
     widget.addWidget(mainWin)
     widget.setFixedWidth(480)

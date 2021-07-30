@@ -20,7 +20,7 @@
    <property name="geometry">
     <rect>
      <x>570</x>
-     <y>20</y>
+     <y>30</y>
      <width>274</width>
      <height>71</height>
     </rect>
@@ -46,10 +46,10 @@ font:42pt &quot;Microsoft JhengHei UI Light&quot;;
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>430</x>
      <y>120</y>
-     <width>771</width>
-     <height>511</height>
+     <width>521</width>
+     <height>321</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -79,7 +79,123 @@ font:42pt &quot;Microsoft JhengHei UI Light&quot;;
     </item>
    </layout>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>1080</x>
+     <y>30</y>
+     <width>251</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(85, 170, 150)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>361</width>
+     <height>861</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2"/>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>500</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+border-bottom: 1px solid black;
+color: #9D9BC3;</string>
+   </property>
+   <property name="placeholderText">
+    <string>Enter the city!</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>630</y>
+     <width>551</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(85, 200, 200);</string>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>550</y>
+     <width>81</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(50, 100, 100);
+background-color: rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string>RUN</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>470</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(85, 200, 200);</string>
+   </property>
+   <property name="text">
+    <string>Weather</string>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="C:/Users/semen/Desktop/bnn/proj.qrc"/>
+ </resources>
  <connections/>
 </ui>
